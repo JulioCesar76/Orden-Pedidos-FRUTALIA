@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Frutalia - Pedido de Jugos</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fffbe6;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+
+    .cenefa {
+      width: 100%;
+      height: 30px;
+      background: linear-gradient(90deg, #00f, #0ff, #00f);
+      background-size: 200% auto;
+      animation: moverCenefa 3s linear infinite, brillar 1s infinite;
+    }
+
+    @keyframes moverCenefa {
+      0% { background-position: 200% center; }
+      100% { background-position: -200% center; }
+    }
+
+    @keyframes brillar {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(2); }
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 4px solid yellow;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #e91e63;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 15px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    input, select, textarea, button {
+      margin-top: 5px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 2px solid #ccc;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #e91e63;
+      outline: none;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #ff9800;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #e65100;
+    }
+
+    #mensaje {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+      color: green;
+    }
+
+    #listaPedidos li {
+      background: #e0f7fa;
+      margin: 10px 0;
+      padding: 10px;
+      border-left: 5px solid #009688;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="cenefa"></div>
+  <main class="container">
+    <h1>Frutalia - Haz tu pedido</h1>
+
+    <form id="pedidoForm">
+      <label for="Nombre del cliente">Nombre del cliente:</label>
+      <input type="text" id="Nombre del cliente" name="Nombre del cliente" required>
+
+      <label for="Teléfono">Teléfono:</label>
+      <input type="tel" id="Teléfono" name="Teléfono" required>
+
+      <label for="Sabor del jugo">Sabor del jugo:</label>
+      <select id="Sabor del jugo" name="Sabor del jugo" required>
+        <option value="naranja">Naranja</option>
+        <option value="mango">Mango</option>
+        <option value="fresa">Fresa</option>
+        <option value="piña">Piña</option>
+      </select>
+
+      <label for="Tamaño">Tamaño:</label>
+      <select id="Tamaño" name="Tamaño" required>
+        <option value="chico">Chico</option>
+        <option value="mediano">Mediano</option>
+        <option value="grande">Grande</option>
+      </select>
+
+      <label for="Comentarios adicionales">Comentarios adicionales:</label>
+      <textarea id="Comentarios adicionales" name="Comentarios adicionales" rows="3"></textarea>
+
+      <button type="submit">Enviar Pedido</button>
+    </form>
+
+    <div id="mensaje"></div>
+
+    <section id="pedidosGuardados">
+      <h2>Pedidos registrados</h2>
+      <ul id="listaPedidos"></ul>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
